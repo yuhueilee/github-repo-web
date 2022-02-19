@@ -28,7 +28,9 @@ function Repos() {
     // initialize a new observer and update page number if there's more to load
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && hasMore) {
-        setPageNumber(prevPageNumber => prevPageNumber + 1);
+        setTimeout(() => {
+          setPageNumber(prevPageNumber => prevPageNumber + 1);
+        }, 1000);
       }
     });
     // observe the last node
@@ -57,6 +59,8 @@ function Repos() {
           );
         }
       })}
+      <div className='font text text-center'>{loading && "Loading..."}</div>
+      <div className='font text text-center'>{error && "An error occurred"}</div>
     </div>
   );
 }
