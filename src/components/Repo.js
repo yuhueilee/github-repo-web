@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import useRepoSearch from './useRepoSearch';
 
 function Repo() {
-
+  // get the params in the route
   const { username, reponame } = useParams();
 
+  // get the repo using hook
   const { 
     loading, 
     error, 
