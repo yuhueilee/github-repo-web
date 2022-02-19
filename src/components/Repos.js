@@ -41,7 +41,7 @@ function Repos() {
       {repos.map((repo, index) => {
         if (repos.length === index + 1) {
           return (
-            <div ref={lastRepoElementRef}>
+            <div ref={lastRepoElementRef} key={repo.full_name}>
               <p className='font'>Repository Name: <b>{repo.name}</b></p>
               <p className='font'>Star Count: <b>{repo.stargazers_count}</b></p>
               <Link className='font' to={`/users/${username}/repos/${repo.name}`}>Click Me</Link>
@@ -49,7 +49,7 @@ function Repos() {
           );
         } else {
           return (
-            <div>
+            <div key={repo.full_name}>
               <p className='font'>Repository Name: <b>{repo.name}</b></p>
               <p className='font'>Star Count: <b>{repo.stargazers_count}</b></p>
               <Link className='font' to={`/users/${username}/repos/${repo.name}`}>Click Me</Link>
