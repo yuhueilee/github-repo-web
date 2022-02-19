@@ -9,14 +9,14 @@ function Repos() {
   const { username } = useParams();
 
   // create state for page number and default to 1
-  const [ pageNumber, setPageNumber ] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1);
 
   // get the repos using hook
-  const { 
-    loading, 
-    error, 
-    repos, 
-    hasMore 
+  const {
+    loading,
+    error,
+    repos,
+    hasMore
   } = useReposSearch(username, pageNumber);
 
   const observer = useRef();
