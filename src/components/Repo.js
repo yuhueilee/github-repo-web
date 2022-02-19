@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import useRepoSearch from './useRepoSearch';
 
+import './Components.css';
+
 function Repo() {
   // get the params in the route
   const { username, reponame } = useParams();
