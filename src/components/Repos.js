@@ -2,6 +2,16 @@ import React, { useState, useRef, useCallback } from 'react';
 import { useParams, Link } from "react-router-dom";
 import useReposSearch from './useReposSearch';
 
+import {
+  Box,
+  Card,
+  CardContent,
+  Typography,
+  CardActionArea,
+  CardMedia
+} from '@mui/material';
+import StarsIcon from '@mui/icons-material/Stars';
+import GitIcon from './github-icon.png';
 import './Components.css';
 
 function Repos() {
@@ -43,19 +53,41 @@ function Repos() {
       {repos.map((repo, index) => {
         if (repos.length === index + 1) {
           return (
-            <div ref={lastRepoElementRef} key={repo.full_name}>
-              <p className='font'>Repository Name: <b>{repo.name}</b></p>
-              <p className='font'>Star Count: <b>{repo.stargazers_count}</b></p>
-              <Link className='font' to={`/users/${username}/repos/${repo.name}`}>Click Me</Link>
-            </div>
+            <Card className="card" ref={lastRepoElementRef} sx={{ display: 'flex' }} key={repo.full_name}>
+              <CardActionArea sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                <CardMedia component="img" sx={{ width: 100 }} image={GitIcon} alt="Repo Icon" />
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <CardContent sx={{ flex: '1 0 auto' }}>
+                    <Typography gutterBottom variant="h6" component="div">
+                      {repo.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: 'center' }}>
+                      <StarsIcon sx={{ mr: 1 }} fontSize="inherit" />
+                      Star Count: {repo.stargazers_count}
+                    </Typography>
+                  </CardContent>
+                </Box>
+              </CardActionArea>
+            </Card>
           );
         } else {
           return (
-            <div key={repo.full_name}>
-              <p className='font'>Repository Name: <b>{repo.name}</b></p>
-              <p className='font'>Star Count: <b>{repo.stargazers_count}</b></p>
-              <Link className='font' to={`/users/${username}/repos/${repo.name}`}>Click Me</Link>
-            </div>
+            <Card className="card" sx={{ display: 'flex' }} key={repo.full_name}>
+              <CardActionArea sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                <CardMedia component="img" sx={{ width: 100 }} image={GitIcon} alt="Repo Icon" />
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <CardContent sx={{ flex: '1 0 auto' }}>
+                    <Typography gutterBottom variant="h6" component="div">
+                      {repo.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: 'center' }}>
+                      <StarsIcon sx={{ mr: 0.3 }} fontSize="inherit" />
+                      Star Count: {repo.stargazers_count}
+                    </Typography>
+                  </CardContent>
+                </Box>
+              </CardActionArea>
+            </Card>
           );
         }
       })}
