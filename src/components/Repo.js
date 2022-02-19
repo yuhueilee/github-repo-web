@@ -2,11 +2,13 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import useRepoSearch from './useRepoSearch';
 
-import { 
+import {
   Button,
-  Card, 
-  CardContent, 
-  Typography, 
+  Breadcrumbs,
+  Link,
+  Card,
+  CardContent,
+  Typography,
   CardActions,
   Fade,
   Divider,
@@ -16,6 +18,8 @@ import {
   ListItemAvatar,
   Avatar
 } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
+import ComputerIcon from '@mui/icons-material/Computer';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LanguageIcon from '@mui/icons-material/Language';
 import StarIcon from '@mui/icons-material/Star';
@@ -35,6 +39,16 @@ function Repo() {
 
   return (
     <>
+      <Breadcrumbs aria-label="breadcrumb" separator="›" sx={{ margin: '0 0 10px 5px' }}>
+        <Link underline="hover" color="inherit" href={"/users/" + username + "/repos"} sx={{ display: 'flex', alignItems: 'center' }}>
+          <PersonIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+          {username}
+        </Link>
+        <Link underline="hover" color="inherit" href={"/users/" + username + "/repos/" + reponame} sx={{ display: 'flex', alignItems: 'center' }}>
+          <ComputerIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+          {reponame}
+        </Link>
+      </Breadcrumbs>
       <div className="font text text-center">{loading && 'Loading...'}</div>
       <div className="font text text-center">{error && 'Error'}</div>
       <Fade in={!loading}>
