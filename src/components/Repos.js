@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useReposSearch from './useReposSearch';
 
 import {
@@ -20,6 +20,13 @@ function Repos() {
 
   // create state for page number and default to 1
   const [pageNumber, setPageNumber] = useState(1);
+
+  // create handler to navigate to a specific repo webpage
+  const navigate = useNavigate();
+  const routeChange = (reponame) => {
+    const path = `/users/${username}/repos/${reponame}`;
+    navigate(path);
+  };
 
   // get the repos using hook
   const {
@@ -54,7 +61,7 @@ function Repos() {
         if (repos.length === index + 1) {
           return (
             <Card className="card" ref={lastRepoElementRef} sx={{ display: 'flex' }} key={repo.full_name}>
-              <CardActionArea sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+              <CardActionArea onClick={() => routeChange(repo.name)} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                 <CardMedia component="img" sx={{ width: 100 }} image={GitIcon} alt="Repo Icon" />
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   <CardContent sx={{ flex: '1 0 auto' }}>
@@ -73,7 +80,7 @@ function Repos() {
         } else {
           return (
             <Card className="card" sx={{ display: 'flex' }} key={repo.full_name}>
-              <CardActionArea sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+              <CardActionArea onClick={() => routeChange(repo.name)} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                 <CardMedia component="img" sx={{ width: 100 }} image={GitIcon} alt="Repo Icon" />
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   <CardContent sx={{ flex: '1 0 auto' }}>
