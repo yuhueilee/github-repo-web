@@ -2,6 +2,24 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import useRepoSearch from './useRepoSearch';
 
+import { 
+  Button,
+  Card, 
+  CardContent, 
+  Typography, 
+  CardActions,
+  Fade,
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar
+} from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import LanguageIcon from '@mui/icons-material/Language';
+import StarIcon from '@mui/icons-material/Star';
+import ArticleIcon from '@mui/icons-material/Article';
 import './Components.css';
 
 function Repo() {
@@ -9,21 +27,61 @@ function Repo() {
   const { username, reponame } = useParams();
 
   // get the repo using hook
-  const { 
-    loading, 
-    error, 
+  const {
+    loading,
+    error,
     repo
   } = useRepoSearch(username, reponame);
 
   return (
-    <div>
-      <h2 className='font'>{repo?.full_name}</h2>
-      <p className='font'>Description: {repo?.description}</p>
-      <p className='font'>Start Count: {repo?.stargazers_count}</p>
-      <p className='font'>See more in <a href={repo?.html_url} target="_blank" rel="noreferrer">GitHub</a></p>
-      <div>{loading && 'Loading...'}</div>
-      <div>{error && 'Error'}</div>
-    </div>
+    <>
+      <div className="font text text-center">{loading && 'Loading...'}</div>
+      <div className="font text text-center">{error && 'Error'}</div>
+      <Fade in={!loading}>
+        <Card variant="outlined">
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {repo?.full_name}
+            </Typography>
+            <Typography gutterBottom variant="caption" display="block" color="text.secondary">
+              created at {repo?.created_at.split('T')[0]}
+            </Typography>
+            <List sx={{ width: '100%' }}>
+              <ListItem sx={{ padding: '8px 0 8px 0' }}>
+                <ListItemAvatar>
+                  <Avatar><ArticleIcon /></Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Description" secondary={repo?.description || 'Not available'} />
+              </ListItem>
+              <Divider variant="inset" component="li" sx={{ marginLeft: '55px' }} />
+              <ListItem sx={{ padding: '8px 0 8px 0' }}>
+                <ListItemAvatar>
+                  <Avatar><StarIcon /></Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Star Count" secondary={repo?.stargazers_count} />
+              </ListItem>
+              <Divider variant="inset" component="li" sx={{ marginLeft: '55px' }} />
+              <ListItem sx={{ padding: '8px 0 8px 0' }}>
+                <ListItemAvatar>
+                  <Avatar><LanguageIcon /></Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Language" secondary={repo?.language || 'Not available'} />
+              </ListItem>
+              <Divider variant="inset" component="li" sx={{ marginLeft: '55px' }} />
+              <ListItem sx={{ padding: '8px 0 8px 0' }}>
+                <ListItemAvatar>
+                  <Avatar><VisibilityIcon /></Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Visibility" secondary={repo?.visibility} />
+              </ListItem>
+            </List>
+            <CardActions sx={{ justifyContent: 'end' }}>
+              <Button size="small" color="primary" href={repo?.html_url} target="_blank">See More</Button>
+            </CardActions>
+          </CardContent>
+        </Card>
+      </Fade>
+    </>
   );
 }
 
