@@ -39,7 +39,7 @@ function Repo() {
 
   return (
     <>
-      <Breadcrumbs aria-label="breadcrumb" separator="›" sx={{ margin: '0 0 10px 5px' }}>
+      <Breadcrumbs aria-label="breadcrumb" separator="›" sx={{ margin: '0 auto 10px auto', width: '70%' }}>
         <Link underline="hover" color="inherit" href={"/users/" + username + "/repos"} sx={{ display: 'flex', alignItems: 'center' }}>
           <PersonIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           {username}
@@ -52,7 +52,7 @@ function Repo() {
       <div className="font text text-center">{loading && 'Loading...'}</div>
       <div className="font text text-center">{error && 'Error'}</div>
       <Fade in={!loading}>
-        <Card variant="outlined">
+        <Card variant="outlined" sx={{ margin: 'auto', width: '70%' }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {repo?.full_name}

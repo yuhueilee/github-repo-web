@@ -5,19 +5,21 @@
 .font {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     line-height: 1.334;
-    letter-spacing: 0em;
 }
 
 .heading {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.5rem;
+    letter-spacing: 0.1em;
 }
 
 .text {
     font-weight: 300;
     font-size: 1rem;
+    letter-spacing: 0em;
 }
 
 .card {
-    margin: 10px 0 10px 0;
+    margin: 10px auto 10px auto;
+    width: 70%;
 }
