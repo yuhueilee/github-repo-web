@@ -62,7 +62,7 @@ function Repos() {
           return (
             <Card className="card" ref={lastRepoElementRef} sx={{ display: 'flex' }} key={repo.full_name}>
               <CardActionArea onClick={() => routeChange(repo.name)} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <CardMedia component="img" sx={{ width: 100 }} image={GitIcon} alt="Repo Icon" />
+                <CardMedia component="img" sx={{ width: 80, paddingLeft: '15px' }} image={GitIcon} alt="Repo Icon" />
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   <CardContent sx={{ flex: '1 0 auto' }}>
                     <Typography gutterBottom variant="h6" component="div">
@@ -81,7 +81,7 @@ function Repos() {
           return (
             <Card className="card" sx={{ display: 'flex' }} key={repo.full_name}>
               <CardActionArea onClick={() => routeChange(repo.name)} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
-                <CardMedia component="img" sx={{ width: 100 }} image={GitIcon} alt="Repo Icon" />
+                <CardMedia component="img" sx={{ width: 80, paddingLeft: '15px' }} image={GitIcon} alt="Repo Icon" />
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   <CardContent sx={{ flex: '1 0 auto' }}>
                     <Typography gutterBottom variant="h6" component="div">
