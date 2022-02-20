@@ -11,7 +11,7 @@ const useRepoSearch = (username, reponame) => {
     setLoading(true);
     setError(false);
 
-    const octokit = new Octokit({ auth: process.env.REACT_APP_GH });
+    const octokit = new Octokit();
 
     octokit
       .request("GET /repos/{owner}/{repo}", {
