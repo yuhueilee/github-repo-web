@@ -2,7 +2,7 @@
 
 ## Project Structure
 
-There are two main components used in the `App.js`, which are `Repos.js` and `Repo.js`. The functionalities of those are described as follow.
+There are two main components used in the `App.js`, which are `Repos.js` and `Repo.js`. Files related to components are placed under the `components` directory. The functionalities of those are described as follow.
 
 *  `Repos.js`: Display the first 10 repositories of a `user` in a scrollable view. The web page will automatically load the next 10 reposities when scrolling to the end until no more data is retrieved.
 *  `Repo.js`: Display the details of the repositry of a `user`. The web page is accessible by clicking on one of the repositries displayed in `Repos.js`.
@@ -11,6 +11,8 @@ In addition, hookers are created to perform API request to fetch the data. There
 
 *  `useReposSearch.js`: Perform `GET` request to retrieve the repositries data of a `user` and return the data.
 *  `useRepoSearch.js`: Perform `GET` request to retrieve the data of a `repo` of a `user` and return the data.
+
+Finally, in `App.js`, the two main components are imported and supplied to the `Route` element property. By default, the link will be redirected to `/users/yuhueilee/repos` when launching the application. In order to view other users' repositries, simply provide the desired username in the link `/users/{username}/repos`.
 
 ## Deployment
 
