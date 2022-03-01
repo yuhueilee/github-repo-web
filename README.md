@@ -24,6 +24,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+> Please run `npm install` in the project directory after cloning this repo to your device.
+
 In the project directory, you can run:
 
 ### `npm start`
