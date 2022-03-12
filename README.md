@@ -7,7 +7,7 @@ There are two main components used in the `App.js`, which are `Repos.js` and `Re
 *  `Repos.js`: Display the first 10 repositories of a `user` in a scrollable view. The web page will automatically load the next 10 reposities when scrolling to the end until no more data is retrieved.
 *  `Repo.js`: Display the details of the repositry of a `user`. The web page is accessible by clicking on one of the repositries displayed in `Repos.js`.
 
-In addition, hookers are created to perform API request to fetch the data. There are two hookers, `useReposSearch.js` and `useRepoSearch.js`, which are used by `Repos.js` and `Repo.js` respectively. The functionalities of those are described as follow.
+In addition, hooks are created to perform API request to fetch the data. There are two hooks, `useReposSearch.js` and `useRepoSearch.js`, which are used by `Repos.js` and `Repo.js` respectively. The functionalities of those are described as follow.
 
 *  `useReposSearch.js`: Perform `GET` request to retrieve the repositries data of a `user` and return the data.
 *  `useRepoSearch.js`: Perform `GET` request to retrieve the data of a `repo` of a `user` and return the data.
