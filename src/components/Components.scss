@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@800&display=swap");
 
 .white {
     color: #fff;
@@ -6,8 +6,8 @@
 
 .error-msg {
     margin: 0;
-    font-size: calc(1em + 20vw) ;  
-	font-weight: 1000;
+    font-size: calc(1em + 20vw);
+    font-weight: 1000;
     color: mix(#fff, #e91e63, 85%);
     text-shadow: -0.0075em 0.0075em 0 mix(#fff, #e91e63, 94%),
         0.005em 0.005em 0 mix(#fff, #e91e63, 60%),
@@ -29,9 +29,29 @@
 }
 
 .heading {
-    font-weight: 500;
-    font-size: 1.5rem;
-    letter-spacing: 0.1em;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 1000;
+    color: mix(#fff, #e91e63, 85%);
+    text-shadow: -0.0075em 0.0075em 0 mix(#fff, #e91e63, 94%),
+        0.005em 0.005em 0 mix(#fff, #e91e63, 60%),
+        0.01em 0.01em 0 mix(#fff, #e91e63, 62%),
+        0.015em 0.015em mix(#fff, #e91e63, 64%),
+        0.02em 0.02em 0 mix(#fff, #e91e63, 66%),
+        0.025em 0.025em 0 mix(#fff, #e91e63, 68%),
+        0.03em 0.03em 0 mix(#fff, #e91e63, 70%),
+        0.035em 0.035em 0 mix(#fff, #e91e63, 72%);
+    animation: fadeIn 2.5s linear forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .text {
