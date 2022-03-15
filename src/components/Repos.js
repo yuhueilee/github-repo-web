@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import StarsIcon from '@mui/icons-material/Stars';
 import GitIcon from './github-icon.png';
-import './Components.css';
+import './Components.scss';
 
 function Repos() {
   // get the param in the route
