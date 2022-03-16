@@ -98,8 +98,8 @@ function Repos() {
           );
         }
       })}
-      <div className='font text text-center white'>{loading && "Loading..."}</div>
-      <div className='font text text-center white'>{error && "An error occurred"}</div>
+      <div className='font text text-center white'>{loading && "Loading..." && (! error)}</div>
+      <div className='font text text-center white'>{error && "An error occurred. Please make sure the link is valid."}</div>
     </div>
   );
 }

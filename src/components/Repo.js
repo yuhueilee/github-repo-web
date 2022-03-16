@@ -49,8 +49,8 @@ function Repo() {
           {reponame}
         </Link>
       </Breadcrumbs>
-      <div className="font text text-center white">{loading && 'Loading...'}</div>
-      <div className="font text text-center white">{error && 'Error'}</div>
+      <div className="font text text-center white">{loading && 'Loading...' && (! error)}</div>
+      <div className="font text text-center white">{error && 'An error occurred. Please make sure the link is valid.'}</div>
       <Fade in={!loading}>
         <Card variant="outlined" sx={{ margin: 'auto', width: '70%' }}>
           <CardContent>
