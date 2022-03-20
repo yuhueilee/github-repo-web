@@ -12,7 +12,9 @@ In addition, hooks are created to perform API request to fetch the data. There a
 *  `useReposSearch.js`: Perform `GET` request to retrieve the repositries data of a `user` and return the data.
 *  `useRepoSearch.js`: Perform `GET` request to retrieve the data of a `repo` of a `user` and return the data.
 
-Finally, in `App.js`, the two main components are imported and supplied to the `Route` element property. By default, the link will be redirected to `/users/yuhueilee/repos` when launching the application. In order to view other users' repositries, simply provide the desired username in the link `/users/{username}/repos`.
+Besides that, the `pageNotFound.js` component is used to display a 404 with a message along with a redirect button when the route is not found. 
+
+Last but not least, in `App.js`, the two main components are imported and supplied to the `Route` element property. By default, the link will be redirected to `/users/yuhueilee/repos` when launching the application. In order to view other users' repositries, simply provide the desired username in the link `/users/{username}/repos`.
 
 ## Deployment
 
